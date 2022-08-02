@@ -26,6 +26,12 @@ $(document).ready(function (){
 
         var value = $("#value").val();
         var ammount = $("#loan").val();
+
+        if (value=="" || ammount== "") {
+            $("#result1").text("Please fill out the values");
+            $("#result2").text("");
+            $("#result3").text("");
+        }
         $.getJSON("/Loan?value=" + value + "&ammount=" + ammount, function (data) {
             $("#result1").text("Property Value: "+data.propertyValue);
             $("#result2").text("Loan Ammount: "+data.loanAmmount);
